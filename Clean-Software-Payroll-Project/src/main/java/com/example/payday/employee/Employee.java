@@ -85,7 +85,10 @@ public class Employee {
     public Paycheck payday(Date payDate) {
         Paycheck pc = new Paycheck(getPayPeriodStartDate(payDate), payDate);
         double grossPay = classification.calculatePay(pc);
-        double deductions = affiliation.calculateDeductions(pc);
+        double deductions = 0;
+        if(this.affiliation != null) {
+            deductions = affiliation.calculateDeductions(pc);
+        }
         double netPay = grossPay - deductions;
         pc.setGrossPay(grossPay);
         pc.setDeductions(deductions);
