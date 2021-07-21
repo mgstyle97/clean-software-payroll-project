@@ -48,4 +48,9 @@ public class CommissionedClassification extends PaymentClassification {
     public double calculatePay(Paycheck pc) {
         return 0;
     }
+
+    private double calculatePayForSalesReceipt(SalesReceipt salesReceipt) {
+        return salesReceipt.getAmount() * commissionRate;
+    }
+    
 }
