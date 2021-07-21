@@ -2,6 +2,7 @@ package com.example.payday.employee.classification;
 
 import com.example.payday.Paycheck;
 import com.example.payday.employee.PaymentClassification;
+import com.example.payday.utils.DateUtils;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -46,6 +47,18 @@ public class CommissionedClassification extends PaymentClassification {
 
     @Override
     public double calculatePay(Paycheck pc) {
-        return 0;
+        double totalPay = 0;
+        for (SalesReceipt salesReceipt : salesReceipts) {
+            if (!isInPayPeriod(DateUtils.toDate(salesReceipt.getDate()), pc)) {
+                continue;
+            }
+            totalPay += calculatePayForSalesReceipt(salesReceipt);
+        }
+        totalPay += salary;
+        return totalPay;
+    }
+
+    private double calculatePayForSalesReceipt(SalesReceipt salesReceipt) {
+        return salesReceipt.getAmount() * commissionRate;
     }
 }
