@@ -18,11 +18,11 @@ public class AddCommissionedEmployee extends AddEmployeeTransaction {
 
     @Override
     public PaymentClassification getClassification() {
-        return new CommissionedClassification(salary, commissionRate);
+        return null;
     }
 
     @Override
     public PaymentSchedule getSchedule() {
-        return new BiweeklySchedule();
+        return null;
     }
 }

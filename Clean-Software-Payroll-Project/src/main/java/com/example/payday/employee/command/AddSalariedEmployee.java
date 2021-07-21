@@ -17,11 +17,11 @@ public class AddSalariedEmployee extends AddEmployeeTransaction {
 
     @Override
     public PaymentClassification getClassification() {
-        return new SalariedClassification(salary);
+        return null;
     }
 
     @Override
     public PaymentSchedule getSchedule() {
-        return new MonthlySchedule();
+        return null;
     }
 }
