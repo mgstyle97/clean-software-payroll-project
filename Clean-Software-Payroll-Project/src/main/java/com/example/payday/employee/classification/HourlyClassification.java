@@ -46,15 +46,7 @@ public class HourlyClassification extends PaymentClassification {
 
     @Override
     public double calculatePay(Paycheck pc) {
-        double totalPay = 0;
-        for(TimeCard timeCard : timeCards) {
-            if (!isInPayPeriod(DateUtils.toDate(timeCard.getDate()), pc)) {
-                continue;
-            }
-            totalPay += calculatePayForTimeCard(timeCard);
-        }
-
-        return totalPay;
+        return 0;
     }
 
     private double calculatePayForTimeCard(TimeCard tc) {
