@@ -61,4 +61,9 @@ public class CommissionedClassification extends PaymentClassification {
     private double calculatePayForSalesReceipt(SalesReceipt salesReceipt) {
         return salesReceipt.getAmount() * commissionRate;
     }
+
+    private double calculatePayForSalesReceipt(SalesReceipt salesReceipt) {
+        return salesReceipt.getAmount() * commissionRate;
+    }
+    
 }
