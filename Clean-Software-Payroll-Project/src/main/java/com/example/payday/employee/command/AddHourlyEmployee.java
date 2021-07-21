@@ -16,11 +16,11 @@ public class AddHourlyEmployee extends AddEmployeeTransaction {
 
     @Override
     public PaymentClassification getClassification() {
-        return null;
+        return new HourlyClassification(hourlyRate);
     }
 
     @Override
     public PaymentSchedule getSchedule() {
-        return null;
+        return new WeeklySchedule();
     }
 }

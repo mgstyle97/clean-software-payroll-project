@@ -31,11 +31,18 @@ public abstract class AddEmployeeTransaction implements Transaction {
     @Override
     @Transactional
     public void execute() {
-        // template
+        PaymentClassification pc = getClassification();
+        PaymentSchedule ps = getSchedule();
+        PaymentMethod pm = new HoldMethod();
+        Employee employee = new Employee(empId, name, address);
+        employee.setClassification(pc);
+        employee.setSchedule(ps);
+        employee.setMethod(pm);
+        employee.setAffiliation(new NoAffiliation());
+        employeeRepository.save(employee);
 
     }
 
-    // abstract method
     public abstract PaymentClassification getClassification();
 
     public abstract PaymentSchedule getSchedule();
