@@ -1,0 +1,21 @@
+spring:
+  jpa:
+    database: h2
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: create-drop
+
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:payroll
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+server:
+  port: 9090
